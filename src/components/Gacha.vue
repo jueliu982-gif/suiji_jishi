@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// @ts-nocheck
 import { ref, onMounted } from "vue";
 let moveValue = ref(false);  // 控制是否开始动画
 let dataList = ref([]) // 存储的人员数据

@@ -5,6 +5,7 @@ import type { DataItem } from '@/types/index'
 import { ElMessage } from "element-plus";
 const dialogVisible = ref(false);
 
+type PersonItem = DataItem['list'][number];
 
 const defaultList: Array<DataItem> = [
   {
@@ -36,7 +37,7 @@ const defaultList: Array<DataItem> = [
   },
 ];
 
-let dataList = ref([]);
+let dataList = ref<DataItem[]>([]);
 // 获取初始数据
 function getDataList() {
   let localData = localStorage.getItem('personList')
@@ -51,9 +52,9 @@ onMounted(() => {
   getDataList();
 });
 // 添加数据弹窗相关数据
-let addSelectValue = ref(null);
+let addSelectValue = ref<number | null>(null);
 const addListVisiable = ref(false);
-let addName = ref(null);
+let addName = ref<string>('');
 let typeOptions = ref([
   { type: 1, title: "普足" },
   { type: 2, title: "柔式" },
@@ -75,7 +76,7 @@ function addListHandle() {
     });
     return
   }
-  let addData = {
+  let addData: PersonItem = {
     id: Math.ceil(Math.random() * 100000).toString(),
     name: addName.value,
   };
@@ -92,8 +93,8 @@ function addListHandle() {
   });
 }
 // 校验输入的名字是否重复
-function nameVerifyHandle(arr = [], name) {
-  return arr.reduce((value, item) => {
+function nameVerifyHandle(arr: DataItem[] = [], name: string | null) {
+  return arr.reduce<PersonItem[]>((value, item) => {
     return value = [...value, ...item.list]
   }, []).some((item) => { return item.name == name })
 }
@@ -102,7 +103,7 @@ function saveDaveToStorage() {
   localStorage.setItem('personList', JSON.stringify(dataList.value))
 }
 // 删除人员
-function deletePersonHandle(deleteTarget) {
+function deletePersonHandle(deleteTarget: PersonItem) {
   dataList.value.forEach((lists) => {
     let index = lists.list.findIndex(item => item === deleteTarget)
     if (index !== -1) {
