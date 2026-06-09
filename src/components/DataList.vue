@@ -51,6 +51,7 @@ function getDataList() {
 onMounted(() => {
   getDataList();
 });
+console.log(11111)
 // 添加数据弹窗相关数据
 let addSelectValue = ref<number | null>(null);
 const addListVisiable = ref(false);
