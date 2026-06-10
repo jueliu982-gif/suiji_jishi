@@ -3,10 +3,6 @@
   import Gacha from '@/components/Gacha.vue'
   import test from '@/components/test.vue'
 
-  const a: string = 1
-  while(a === 1) {
-  console.log(1)
-}
 
 
 </script>

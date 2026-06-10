@@ -7,6 +7,7 @@ import Q from '@/pages/q/index.vue'
 import Qchild from '@/pages/q/q-child.vue'
 import test from '@/pages/test/index.vue'
 import MobilePractice from '@/pages/mobile-practice/index.vue'
+import Pdf from '@/pages/pdf/index.vue'
 const routes = [
   {
     path: '/',
@@ -44,6 +45,10 @@ const routes = [
       {
         path: '/test',
         component: test
+      },
+      {
+        path: '/pdf',
+        component: Pdf
       }
     ]
   },

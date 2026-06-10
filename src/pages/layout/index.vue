@@ -19,6 +19,7 @@
         <div class="links" @click="navigatorTo(3)">嵌套路由</div>
         <div class="links" @click="navigatorTo(5)">测试板块</div>
         <div class="links" @click="navigatorTo(6)">移动练习</div>
+        <div class="links" @click="navigatorTo(7)">PDF</div>
       </div>
       <div class="content">
         <router-view v-slot="{ Component }">
@@ -77,6 +78,11 @@ function navigatorTo(type) {
     case 6:
       routeOPtions = {
         path: '/mobile-practice'
+      }
+      break
+      case 7:
+      routeOPtions = {
+        path: '/pdf'
       }
   }
   router.push(routeOPtions)

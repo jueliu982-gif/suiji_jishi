@@ -1,5 +1,7 @@
 <template>
-  <div>测试页面</div>
+  <div class="box">
+    <time>111111</time>
+  </div>
 </template>
 
 <script setup>
@@ -8,6 +10,9 @@ let obj = ref({ a: 1 })
 console.log(obj.value.a)
 </script>
 
-<style>
-
+<style scoped lang="scss">
+.box {
+  width: 1000px;
+  height: 400px;
+}
 </style>
